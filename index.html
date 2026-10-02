@@ -3,37 +3,40 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YUVRAJ TOOLS | Free Online Tools</title>
-<meta name="description" content="Free online image compressor, resizer and digital tools.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YUVRAJ TOOLS - Free Online Tools</title>
+<meta name="description" content="Free online PDF and image tools. Compress, resize and convert files easily.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#080b12;color:#fff;font-family:Arial,sans-serif}
-header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292e38}
-.logo{font-size:23px;font-weight:bold;color:#f5c344}
+body{font-family:Arial,sans-serif;background:#080b12;color:#fff}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #303542}
+.logo{font-size:22px;font-weight:bold;color:#f5c344}
 .logo span{color:white}
-nav a{color:#ddd;text-decoration:none;margin-left:14px;font-size:13px}
-.hero{text-align:center;padding:65px 15px 35px}
-.hero h1{font-size:38px;margin-bottom:15px}
+nav a{color:#ddd;text-decoration:none;margin-left:15px;font-size:13px}
+.hero{text-align:center;padding:60px 15px 35px}
+.hero h1{font-size:36px;margin-bottom:15px}
 .hero h1 span{color:#f5c344}
 .hero p{color:#aaa;line-height:1.8}
 .search{max-width:500px;margin:25px auto}
-.search input{width:100%;padding:15px;border-radius:10px;border:1px solid #414653;background:#171c27;color:white;font-size:15px}
-h2{text-align:center;color:#f5c344;margin:30px 0}
+.search input{width:100%;padding:15px;border-radius:10px;border:1px solid #444;background:#171c27;color:white}
+h2{text-align:center;color:#f5c344;margin:25px 0}
 .tools{max-width:1000px;margin:auto;padding:10px 6%;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
 .card{background:#171c27;border:1px solid #303846;border-radius:13px;padding:22px 10px;text-align:center;cursor:pointer}
-.card:hover{border-color:#f5c344}
+.card:hover{border-color:#f5c344;transform:translateY(-2px)}
 .icon{font-size:30px;margin-bottom:12px}
 .card h3{font-size:15px;margin-bottom:7px}
 .card p{font-size:12px;color:#aaa}
-.panel{max-width:600px;margin:35px auto;padding:25px;background:#171c27;border:1px solid #3a414e;border-radius:15px;text-align:center}
+.panel{max-width:620px;margin:35px auto;padding:25px;background:#171c27;border:1px solid #3a414e;border-radius:15px;text-align:center}
 .panel input{display:block;width:100%;margin:15px 0;padding:12px;background:#252c39;color:white;border:1px solid #444;border-radius:8px}
-button{background:#f5c344;color:#111;border:0;padding:13px 22px;border-radius:8px;font-weight:bold;cursor:pointer}
-#result{margin-top:20px;color:#f5c344;line-height:2;word-break:break-word}
+button{background:#f5c344;color:#111;border:0;padding:13px 22px;border-radius:8px;font-weight:bold;cursor:pointer;margin:8px 0}
+button:disabled{opacity:.5}
+#result{margin-top:18px;color:#f5c344;line-height:2;overflow-wrap:anywhere}
+#result a{display:inline-block;background:#f5c344;color:#111;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:bold;margin:5px}
 .hidden{display:none}
+.note{font-size:12px;color:#aaa;line-height:1.6;margin-top:12px}
 footer{text-align:center;padding:30px;color:#aaa;border-top:1px solid #292e38;margin-top:45px;font-size:13px}
 footer span{color:#f5c344}
-@media(max-width:500px){.hero h1{font-size:29px}nav a{margin-left:7px;font-size:11px}}
+@media(max-width:500px){.hero h1{font-size:29px}nav a{margin-left:7px;font-size:11px}.panel{margin:25px 12px}}
 </style>
 </head>
 <body>
@@ -51,27 +54,29 @@ footer span{color:#f5c344}
 </section>
 
 <h2 id="tools">Explore Free Tools</h2>
-<div class="tools" id="toolGrid">
+<div class="tools">
 <div class="card" onclick="openTool('compress')"><div class="icon">🖼️</div><h3>Image Compressor</h3><p>Reduce image size</p></div>
 <div class="card" onclick="openTool('resize')"><div class="icon">📐</div><h3>Image Resizer</h3><p>Change dimensions</p></div>
 <div class="card" onclick="openTool('convert')"><div class="icon">🔄</div><h3>JPG to PNG</h3><p>Change image format</p></div>
-<div class="card" onclick="openTool('pdf')"><div class="icon">📄</div><h3>PDF to JPG</h3><p>Convert PDF</p></div>
-<div class="card" onclick="openTool('jpgpdf')"><div class="icon">📑</div><h3>JPG to PDF</h3><p>Convert image</p></div>
+<div class="card" onclick="openTool('pdfjpg')"><div class="icon">📄</div><h3>PDF to JPG</h3><p>Convert PDF pages</p></div>
+<div class="card" onclick="openTool('jpgpdf')"><div class="icon">📑</div><h3>JPG to PDF</h3><p>Convert images</p></div>
+<div class="card" onclick="openTool('pdfcompress')"><div class="icon">🗜️</div><h3>PDF Optimizer</h3><p>Re-save PDF</p></div>
 <div class="card" onclick="openTool('calculator')"><div class="icon">🧮</div><h3>KB to MB</h3><p>File size converter</p></div>
 </div>
 
 <section class="panel hidden" id="panel">
 <h2 id="toolTitle">Tool</h2>
-<p id="toolDesc">Select your file</p>
-<input type="file" id="file" accept="image/*">
+<p id="toolDesc" class="note">Choose a file</p>
+<input type="file" id="file">
 <div id="settings"></div>
-<button onclick="processFile()">Process Now</button>
+<button id="runBtn" onclick="processFile()">Process Now</button>
 <div id="result"></div>
 </section>
 
 <section class="panel" id="about">
 <h2>About YUVRAJ TOOLS</h2>
 <p style="color:#aaa;line-height:1.8">Our mission is to make everyday digital work simple. Free online tools for everyone.</p>
+<p class="note">Files are processed in your browser wherever possible. Do not upload sensitive documents to websites you do not trust.</p>
 </section>
 
 <footer>
@@ -80,83 +85,172 @@ footer span{color:#f5c344}
 </footer>
 
 <script>
+let currentTool='';
+const $=id=>document.getElementById(id);
+
 function searchTools(){
-let q=document.getElementById('search').value.toLowerCase();
+let q=$('search').value.toLowerCase();
 document.querySelectorAll('.card').forEach(c=>{
 c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
 });
 }
-let currentTool='';
+
 function openTool(tool){
 currentTool=tool;
-document.getElementById('panel').classList.remove('hidden');
-document.getElementById('file').value='';
-document.getElementById('result').innerHTML='';
-let titles={compress:'Image Compressor',resize:'Image Resizer',convert:'JPG to PNG',pdf:'PDF to JPG',jpgpdf:'JPG to PDF',calculator:'KB to MB Converter'};
-document.getElementById('toolTitle').innerText=titles[tool];
-let settings=document.getElementById('settings');
-settings.innerHTML='';
-document.getElementById('file').style.display='block';
-document.getElementById('file').accept='image/*';
+$('panel').classList.remove('hidden');
+$('file').value='';
+$('result').innerHTML='';
+$('settings').innerHTML='';
+$('file').style.display='block';
+$('file').accept='image/*';
+let titles={
+compress:'Image Compressor',resize:'Image Resizer',convert:'JPG to PNG',
+pdfjpg:'PDF to JPG',jpgpdf:'JPG to PDF',pdfcompress:'PDF Optimizer',
+calculator:'KB to MB Converter'
+};
+$('toolTitle').innerText=titles[tool];
+$('toolDesc').innerText='Select a file to begin';
 if(tool==='compress'){
-settings.innerHTML='<p>Image quality (10-100%)</p><input id="quality" type="number" min="10" max="100" value="70">';
+$('settings').innerHTML='<label>Image quality (10-100%)</label><input id="quality" type="number" min="10" max="100" value="70">';
 }
 if(tool==='resize'){
-settings.innerHTML='<p>Width (pixels)</p><input id="width" type="number" value="500"><p>Height (pixels)</p><input id="height" type="number" value="500">';
+$('settings').innerHTML='<label>Width (pixels)</label><input id="width" type="number" value="500"><label>Height (pixels)</label><input id="height" type="number" value="500">';
 }
 if(tool==='calculator'){
-document.getElementById('file').style.display='none';
-settings.innerHTML='<p>Enter size in KB</p><input id="kb" type="number" placeholder="Enter KB">';
+$('file').style.display='none';
+$('settings').innerHTML='<label>Enter size in KB</label><input id="kb" type="number" min="0" placeholder="Enter KB">';
 }
-if(tool==='pdf'||tool==='jpgpdf'){
-document.getElementById('file').style.display='none';
-document.getElementById('toolDesc').innerText='PDF conversion will be added soon.';
+if(tool==='pdfjpg'||tool==='pdfcompress'){
+$('file').accept='application/pdf,.pdf';
+$('desc');
+$('toolDesc').innerText=tool==='pdfjpg'?'Choose a PDF. Each page will be converted to a JPG.':'Choose a PDF to re-save it. This may not reduce its size.';
+}
+if(tool==='jpgpdf'){
+$('toolDesc').innerText='Choose one or more images to make a PDF.';
+$('file').multiple=true;
 }else{
-document.getElementById('toolDesc').innerText='Select an image to start.';
+$('file').multiple=false;
 }
-document.getElementById('panel').scrollIntoView({behavior:'smooth'});
+$('panel').scrollIntoView({behavior:'smooth'});
 }
-function processFile(){
-let result=document.getElementById('result');
+
+function downloadBlob(blob,name){
+let url=URL.createObjectURL(blob);
+let a=document.createElement('a');
+a.href=url;a.download=name;a.innerText='⬇ Download '+name;
+$('result').appendChild(a);
+}
+
+function loadScript(src){
+return new Promise((resolve,reject)=>{
+let s=document.createElement('script');
+s.src=src;s.onload=resolve;s.onerror=reject;
+document.head.appendChild(s);
+});
+}
+
+async function processFile(){
+let result=$('result');
+result.innerHTML='Processing...';
+try{
 if(currentTool==='calculator'){
-let kb=Number(document.getElementById('kb').value);
-if(kb<0||!Number.isFinite(kb)){result.innerText='Enter a valid number';return}
+let kb=Number($('kb').value);
+if(!Number.isFinite(kb)||kb<0)throw Error('Enter a valid KB value.');
 result.innerText=kb+' KB = '+(kb/1024).toFixed(2)+' MB';
 return;
 }
-if(currentTool==='pdf'||currentTool==='jpgpdf'){
-result.innerText='This PDF tool is coming soon.';
-return;
-}
-let file=document.getElementById('file').files[0];
-if(!file){result.innerText='Please select an image first';return}
+
+let files=[...$('file').files];
+if(!files.length)throw Error('Please select a file first.');
+
+if(currentTool==='compress'||currentTool==='resize'||currentTool==='convert'){
+let file=files[0];
 let url=URL.createObjectURL(file);
 let img=new Image();
-img.onload=function(){
-let canvas=document.createElement('canvas');
+await new Promise((resolve,reject)=>{
+img.onload=resolve;img.onerror=()=>reject(Error('Cannot read this image.'));
+img.src=url;
+});
 let w=img.width,h=img.height;
 if(currentTool==='resize'){
-w=Math.max(1,Number(document.getElementById('width').value)||w);
-h=Math.max(1,Number(document.getElementById('height').value)||h);
+w=Math.max(1,Number($('width').value)||w);
+h=Math.max(1,Number($('height').value)||h);
 }
+let canvas=document.createElement('canvas');
 canvas.width=w;canvas.height=h;
 canvas.getContext('2d').drawImage(img,0,0,w,h);
-let quality=currentTool==='compress'?Math.min(100,Math.max(10,Number(document.getElementById('quality').value)||70))/100:0.85;
 let format=currentTool==='convert'?'image/png':'image/jpeg';
-canvas.toBlob(blob=>{
-if(!blob){result.innerText='Could not process image';return}
-let link=document.createElement('a');
-link.href=URL.createObjectURL(blob);
-link.download=currentTool==='convert'?'yuvraj-image.png':'yuvraj-image.jpg';
-link.innerText='⬇ Download Image';
-link.style='display:inline-block;padding:12px;background:#f5c344;color:#111;border-radius:8px;text-decoration:none;font-weight:bold';
-result.innerHTML='Done!<br>Original: '+(file.size/1024).toFixed(1)+' KB<br>New: '+(blob.size/1024).toFixed(1)+' KB<br><br>';
-result.appendChild(link);
-},format,quality);
+let quality=currentTool==='compress'?Math.min(100,Math.max(10,Number($('quality').value)||70))/100:.85;
+let blob=await new Promise(resolve=>canvas.toBlob(resolve,format,quality));
 URL.revokeObjectURL(url);
-};
-img.onerror=function(){result.innerText='Unable to read this image'};
-img.src=url;
+if(!blob)throw Error('Could not process image.');
+result.innerHTML='Original: '+(file.size/1024).toFixed(1)+' KB<br>New: '+(blob.size/1024).toFixed(1)+' KB<br>';
+downloadBlob(blob,currentTool==='convert'?'yuvraj-image.png':'yuvraj-image.jpg');
+return;
+}
+
+if(currentTool==='jpgpdf'){
+await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+let {jsPDF}=window.jspdf;
+let pdf=new jsPDF();
+for(let i=0;i<files.length;i++){
+let data=await readDataURL(files[i]);
+let img=await loadImage(data);
+let pageW=pdf.internal.pageSize.getWidth(),pageH=pdf.internal.pageSize.getHeight();
+let ratio=Math.min(pageW/img.width,pageH/img.height);
+let w=img.width*ratio,h=img.height*ratio;
+if(i>0)pdf.addPage();
+pdf.addImage(data,'JPEG',(pageW-w)/2,(pageH-h)/2,w,h);
+}
+downloadBlob(pdf.output('blob'),'yuvraj-images.pdf');
+return;
+}
+
+if(currentTool==='pdfjpg'){
+await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+let pdf=await pdfjsLib.getDocument({data:await files[0].arrayBuffer()}).promise;
+result.innerText='Converted pages: '+pdf.numPages+'<br>';
+for(let n=1;n<=pdf.numPages;n++){
+let page=await pdf.getPage(n);
+let viewport=page.getViewport({scale:1.5});
+let canvas=document.createElement('canvas');
+canvas.width=viewport.width;canvas.height=viewport.height;
+await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;
+let blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',.9));
+let name='page-'+n+'.jpg';
+let url=URL.createObjectURL(blob);
+let a=document.createElement('a');
+a.href=url;a.download=name;a.innerText='⬇ Download '+name;
+result.appendChild(a);
+}
+return;
+}
+
+if(currentTool==='pdfcompress'){
+await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js');
+let {PDFDocument}=PDFLib;
+let pdf=await PDFDocument.load(await files[0].arrayBuffer());
+let bytes=await pdf.save({useObjectStreams:true});
+let blob=new Blob([bytes],{type:'application/pdf'});
+result.innerText='Original: '+(files[0].size/1024).toFixed(1)+' KB<br>Saved: '+(blob.size/1024).toFixed(1)+' KB<br>This re-saves the PDF; it may not reduce file size.';
+downloadBlob(blob,'yuvraj-optimized.pdf');
+return;
+}
+}catch(e){
+result.innerText='Error: '+(e.message||'Something went wrong. Please try again.');
+}
+}
+
+function readDataURL(file){
+return new Promise((resolve,reject)=>{
+let r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file);
+});
+}
+function loadImage(src){
+return new Promise((resolve,reject)=>{
+let img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=src;
+});
 }
 </script>
 </body>
