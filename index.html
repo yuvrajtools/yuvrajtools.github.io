@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YUVRAJ TOOLS | Free Online Tools</title>
+<meta name="description" content="Free online image compressor, resizer and digital tools.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#080b12;color:#fff;font-family:Arial,sans-serif}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292e38}
+.logo{font-size:23px;font-weight:bold;color:#f5c344}
+.logo span{color:white}
+nav a{color:#ddd;text-decoration:none;margin-left:14px;font-size:13px}
+.hero{text-align:center;padding:65px 15px 35px}
+.hero h1{font-size:38px;margin-bottom:15px}
+.hero h1 span{color:#f5c344}
+.hero p{color:#aaa;line-height:1.8}
+.search{max-width:500px;margin:25px auto}
+.search input{width:100%;padding:15px;border-radius:10px;border:1px solid #414653;background:#171c27;color:white;font-size:15px}
+h2{text-align:center;color:#f5c344;margin:30px 0}
+.tools{max-width:1000px;margin:auto;padding:10px 6%;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+.card{background:#171c27;border:1px solid #303846;border-radius:13px;padding:22px 10px;text-align:center;cursor:pointer}
+.card:hover{border-color:#f5c344}
+.icon{font-size:30px;margin-bottom:12px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:12px;color:#aaa}
+.panel{max-width:600px;margin:35px auto;padding:25px;background:#171c27;border:1px solid #3a414e;border-radius:15px;text-align:center}
+.panel input{display:block;width:100%;margin:15px 0;padding:12px;background:#252c39;color:white;border:1px solid #444;border-radius:8px}
+button{background:#f5c344;color:#111;border:0;padding:13px 22px;border-radius:8px;font-weight:bold;cursor:pointer}
+#result{margin-top:20px;color:#f5c344;line-height:2;word-break:break-word}
+.hidden{display:none}
+footer{text-align:center;padding:30px;color:#aaa;border-top:1px solid #292e38;margin-top:45px;font-size:13px}
+footer span{color:#f5c344}
+@media(max-width:500px){.hero h1{font-size:29px}nav a{margin-left:7px;font-size:11px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">✦ Y<span>UVRAJ TOOLS</span></div>
+<nav><a href="#">Home</a><a href="#tools">Tools</a><a href="#about">About</a></nav>
+</header>
+
+<section class="hero">
+<h1>Your Work, <span>Made Simple.</span></h1>
+<p>Free Online Tools For Everyone<br>Fast • Simple • Easy</p>
+<div class="search">
+<input id="search" placeholder="Search your tools..." oninput="searchTools()">
+</div>
+</section>
+
+<h2 id="tools">Explore Free Tools</h2>
+<div class="tools" id="toolGrid">
+<div class="card" onclick="openTool('compress')"><div class="icon">🖼️</div><h3>Image Compressor</h3><p>Reduce image size</p></div>
+<div class="card" onclick="openTool('resize')"><div class="icon">📐</div><h3>Image Resizer</h3><p>Change dimensions</p></div>
+<div class="card" onclick="openTool('convert')"><div class="icon">🔄</div><h3>JPG to PNG</h3><p>Change image format</p></div>
+<div class="card" onclick="openTool('pdf')"><div class="icon">📄</div><h3>PDF to JPG</h3><p>Convert PDF</p></div>
+<div class="card" onclick="openTool('jpgpdf')"><div class="icon">📑</div><h3>JPG to PDF</h3><p>Convert image</p></div>
+<div class="card" onclick="openTool('calculator')"><div class="icon">🧮</div><h3>KB to MB</h3><p>File size converter</p></div>
+</div>
+
+<section class="panel hidden" id="panel">
+<h2 id="toolTitle">Tool</h2>
+<p id="toolDesc">Select your file</p>
+<input type="file" id="file" accept="image/*">
+<div id="settings"></div>
+<button onclick="processFile()">Process Now</button>
+<div id="result"></div>
+</section>
+
+<section class="panel" id="about">
+<h2>About YUVRAJ TOOLS</h2>
+<p style="color:#aaa;line-height:1.8">Our mission is to make everyday digital work simple. Free online tools for everyone.</p>
+</section>
+
+<footer>
+<p>© 2026 <span>YUVRAJ TOOLS</span>. All Rights Reserved.</p>
+<p style="margin-top:8px">Your Work, Made Simple.</p>
+</footer>
+
+<script>
+function searchTools(){
+let q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.card').forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
+});
+}
+let currentTool='';
+function openTool(tool){
+currentTool=tool;
+document.getElementById('panel').classList.remove('hidden');
+document.getElementById('file').value='';
+document.getElementById('result').innerHTML='';
+let titles={compress:'Image Compressor',resize:'Image Resizer',convert:'JPG to PNG',pdf:'PDF to JPG',jpgpdf:'JPG to PDF',calculator:'KB to MB Converter'};
+document.getElementById('toolTitle').innerText=titles[tool];
+let settings=document.getElementById('settings');
+settings.innerHTML='';
+document.getElementById('file').style.display='block';
+document.getElementById('file').accept='image/*';
+if(tool==='compress'){
+settings.innerHTML='<p>Image quality (10-100%)</p><input id="quality" type="number" min="10" max="100" value="70">';
+}
+if(tool==='resize'){
+settings.innerHTML='<p>Width (pixels)</p><input id="width" type="number" value="500"><p>Height (pixels)</p><input id="height" type="number" value="500">';
+}
+if(tool==='calculator'){
+document.getElementById('file').style.display='none';
+settings.innerHTML='<p>Enter size in KB</p><input id="kb" type="number" placeholder="Enter KB">';
+}
+if(tool==='pdf'||tool==='jpgpdf'){
+document.getElementById('file').style.display='none';
+document.getElementById('toolDesc').innerText='PDF conversion will be added soon.';
+}else{
+document.getElementById('toolDesc').innerText='Select an image to start.';
+}
+document.getElementById('panel').scrollIntoView({behavior:'smooth'});
+}
+function processFile(){
+let result=document.getElementById('result');
+if(currentTool==='calculator'){
+let kb=Number(document.getElementById('kb').value);
+if(kb<0||!Number.isFinite(kb)){result.innerText='Enter a valid number';return}
+result.innerText=kb+' KB = '+(kb/1024).toFixed(2)+' MB';
+return;
+}
+if(currentTool==='pdf'||currentTool==='jpgpdf'){
+result.innerText='This PDF tool is coming soon.';
+return;
+}
+let file=document.getElementById('file').files[0];
+if(!file){result.innerText='Please select an image first';return}
+let url=URL.createObjectURL(file);
+let img=new Image();
+img.onload=function(){
+let canvas=document.createElement('canvas');
+let w=img.width,h=img.height;
+if(currentTool==='resize'){
+w=Math.max(1,Number(document.getElementById('width').value)||w);
+h=Math.max(1,Number(document.getElementById('height').value)||h);
+}
+canvas.width=w;canvas.height=h;
+canvas.getContext('2d').drawImage(img,0,0,w,h);
+let quality=currentTool==='compress'?Math.min(100,Math.max(10,Number(document.getElementById('quality').value)||70))/100:0.85;
+let format=currentTool==='convert'?'image/png':'image/jpeg';
+canvas.toBlob(blob=>{
+if(!blob){result.innerText='Could not process image';return}
+let link=document.createElement('a');
+link.href=URL.createObjectURL(blob);
+link.download=currentTool==='convert'?'yuvraj-image.png':'yuvraj-image.jpg';
+link.innerText='⬇ Download Image';
+link.style='display:inline-block;padding:12px;background:#f5c344;color:#111;border-radius:8px;text-decoration:none;font-weight:bold';
+result.innerHTML='Done!<br>Original: '+(file.size/1024).toFixed(1)+' KB<br>New: '+(blob.size/1024).toFixed(1)+' KB<br><br>';
+result.appendChild(link);
+},format,quality);
+URL.revokeObjectURL(url);
+};
+img.onerror=function(){result.innerText='Unable to read this image'};
+img.src=url;
+}
+</script>
+</body>
+</html>
